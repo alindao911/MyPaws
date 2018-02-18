@@ -1,4 +1,4 @@
-package charles09.alindao.com.mypaws;
+package charles09.alindao.com.mypaws.Utils;
 
 import android.Manifest;
 import android.annotation.TargetApi;

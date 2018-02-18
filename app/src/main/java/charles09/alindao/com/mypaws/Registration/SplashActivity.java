@@ -1,4 +1,4 @@
-package charles09.alindao.com.mypaws;
+package charles09.alindao.com.mypaws.Registration;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+
+import charles09.alindao.com.mypaws.R;
+import charles09.alindao.com.mypaws.Registration.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
     private ImageView imgView;

@@ -1,4 +1,4 @@
-package charles09.alindao.com.mypaws;
+package charles09.alindao.com.mypaws.Registration;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -16,7 +16,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import org.w3c.dom.Text;
+import charles09.alindao.com.mypaws.MainActivity;
+import charles09.alindao.com.mypaws.R;
 
 public class LoginActivity extends AppCompatActivity {
     //widgets

@@ -14,12 +14,13 @@ public class User {
     private int userAge;
     private String userGender;
     private String userPhoto;
+    private String userCode;
 
-    private User() {
+    public User() {
 
     }
 
-    public User(String userEmail, String userPassword, String userFirstName, String userLastName, String userAddress, String userContact, int userAge, String userGender, String userPhoto) {
+    public User(String userEmail, String userPassword, String userFirstName, String userLastName, String userAddress, String userContact, int userAge, String userGender, String userPhoto, String userCode) {
         this.userEmail = userEmail;
         this.userPassword = userPassword;
         this.userFirstName = userFirstName;
@@ -29,6 +30,7 @@ public class User {
         this.userAge = userAge;
         this.userGender = userGender;
         this.userPhoto = userPhoto;
+        this.userCode = userCode;
     }
 
     public String getUserEmail() {
@@ -101,5 +103,13 @@ public class User {
 
     public void setUserPhoto(String userPhoto) {
         this.userPhoto = userPhoto;
+    }
+
+    public String getUserCode() {
+        return userCode;
+    }
+
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 }

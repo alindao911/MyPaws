@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="3dp"
+        android:orientation="vertical"
+        android:background="#309e5d">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="230dp"
+                android:layout_height="200dp"
+                app:border_color="#69b773"
+                android:id="@+id/imgviewpetpic"
+                app:border_width="5dp"
+                android:src="@drawable/images"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Doggo"
+                android:id="@+id/textPetName"
+                android:gravity="center"
+                android:layout_marginStart="65dp"
+                android:textSize="16sp"
+                android:textColor="#fff"
+                android:background="@drawable/nameholder"
+                android:layout_alignBottom="@+id/imgviewpetpic"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

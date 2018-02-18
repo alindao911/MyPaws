@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="charles09.alindao.com.mypaws.NewClaim">
+    tools:context="charles09.alindao.com.mypaws.NewClaim.NewClaim">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -72,6 +72,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/disagreeBtn"
                 android:background="@drawable/border_disagree"
                 android:text="Disagree"
                 android:textAllCaps="false"
@@ -87,6 +88,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/agreeBtn"
                 android:background="@color/orange_primary"
                 android:text="Agree"
                 android:textAllCaps="false"

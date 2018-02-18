@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import charles09.alindao.com.mypaws.NewClaim.SubmitClaim;
+
 /**
  * Created by Pc-user on 02/02/2018.
  */

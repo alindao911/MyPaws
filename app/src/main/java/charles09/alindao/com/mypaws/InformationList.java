@@ -1,20 +1,18 @@
 package charles09.alindao.com.mypaws;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
+
+import charles09.alindao.com.mypaws.Registration.LoginActivity;
 
 /**
  * Created by Pc-user on 02/02/2018.

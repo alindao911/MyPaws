@@ -1,4 +1,4 @@
-package charles09.alindao.com.mypaws;
+package charles09.alindao.com.mypaws.Utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -14,6 +14,8 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+
+import charles09.alindao.com.mypaws.R;
 
 /**
  * Created by Pc-user on 16/01/2018.

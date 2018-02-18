@@ -14,36 +14,24 @@
         android:src="@drawable/awa"
         android:scaleType="centerCrop"/>
 
-    <LinearLayout
+    <RelativeLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="3dp"
-        android:orientation="vertical"
-        android:background="#309e5d">
-        <RelativeLayout
+        android:layout_height="wrap_content">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/ads_pager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="230dp"
-                android:layout_height="200dp"
-                app:border_color="#69b773"
-                android:id="@+id/imgviewpetpic"
-                app:border_width="5dp"
-                android:src="@drawable/images"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Doggo"
-                android:gravity="center"
-                android:layout_marginStart="65dp"
-                android:textSize="16sp"
-                android:textColor="#fff"
-                android:background="@drawable/nameholder"
-                android:layout_alignBottom="@+id/imgviewpetpic"/>
-        </RelativeLayout>
-    </LinearLayout>
+            android:layout_height="200dp"/>
+        <LinearLayout
+            android:id="@+id/sliderdots"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_alignBottom="@+id/ads_pager"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </LinearLayout>
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -191,6 +179,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="Welcome Charles!"
+            android:id="@+id/textname"
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="#309e5d"

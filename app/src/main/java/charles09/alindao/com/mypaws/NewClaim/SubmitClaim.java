@@ -1,9 +1,10 @@
-package charles09.alindao.com.mypaws;
+package charles09.alindao.com.mypaws.NewClaim;
 
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -15,7 +16,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -24,6 +24,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
+
+import charles09.alindao.com.mypaws.R;
+import charles09.alindao.com.mypaws.Utils.UniversalImageLoader;
+import charles09.alindao.com.mypaws.Utils.Utility;
 
 public class SubmitClaim extends AppCompatActivity {
     private Toolbar toolbar;
@@ -36,7 +40,8 @@ public class SubmitClaim extends AppCompatActivity {
     private ImageView imgViewTwo;
 
     private String petName;
-    private int petImage;
+    private String petImage;
+    private String petCode;
     //Declaring variables
     private String userChoosenTask;
     private int REQUEST_CAMERA = 0;
@@ -76,9 +81,10 @@ public class SubmitClaim extends AppCompatActivity {
     private void setupWidgets() {
         Bundle bundle = getIntent().getExtras();
         petName = bundle.getString("petname");
-        petImage = bundle.getInt("petphoto");
+        petImage = bundle.getString("petphoto");
+        petCode = bundle.getString("petcode");
 
-        imgViewPetPic.setImageResource(petImage);
+        UniversalImageLoader.setImage(petImage, imgViewPetPic, null, "");
         txtViewPetName.setText("Claim for " + petName);
 
     }
@@ -89,6 +95,15 @@ public class SubmitClaim extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), VerifyClaim.class);
                 intent.putExtra("petname", petName);
                 intent.putExtra("petimage", petImage);
+                intent.putExtra("petcode", petCode);
+                imgViewOne.buildDrawingCache();
+                imgViewTwo.buildDrawingCache();
+                Bitmap imageOne = imgViewOne.getDrawingCache();
+                Bitmap imageTwo = imgViewTwo.getDrawingCache();
+                Bundle extras = new Bundle();
+                extras.putParcelable("ImageOne", imageOne);
+                extras.putParcelable("ImageTwo", imageTwo);
+                intent.putExtras(extras);
                 startActivity(intent);
             }
         });

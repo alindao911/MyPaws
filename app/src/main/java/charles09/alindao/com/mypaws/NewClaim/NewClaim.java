@@ -1,4 +1,4 @@
-package charles09.alindao.com.mypaws;
+package charles09.alindao.com.mypaws.NewClaim;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
@@ -13,105 +13,50 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import charles09.alindao.com.mypaws.Model.Pet;
-import charles09.alindao.com.mypaws.Model.User;
-import charles09.alindao.com.mypaws.NewClaim.NewClaim;
-import charles09.alindao.com.mypaws.NewClaim.SubmitClaim;
+import charles09.alindao.com.mypaws.PetList;
+import charles09.alindao.com.mypaws.R;
 import charles09.alindao.com.mypaws.Utils.UniversalImageLoader;
 
-public class PersonalInfoActivity extends AppCompatActivity {
+public class NewClaim extends AppCompatActivity {
     private Toolbar toolbar;
     private TextView toolbarTitle;
     private RecyclerView recyclerView;
-    private TextView textName;
-    private TextView textAddress;
-    private TextView textEmail;
-    private TextView textContact;
-    private TextView textUsername;
-    private ImageView imgViewProfile;
 
-    //
-    private DatabaseReference databaseReference;
+    //Firebase Database
+    private DatabaseReference myRef;
+    private FirebaseDatabase firebaseDatabase;
     private FirebaseRecyclerAdapter<Pet, ShowViewHolder> firebaseRecyclerAdapter;
     private DatabaseReference recyclerRef;
+    private FirebaseAuth mAuth;
+
+    //vars
+    private String uID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_personal_info);
+        setContentView(R.layout.activity_new_claim);
         castWidgets();
-        initImageLoader();
         setupToolbar();
-        setupRecyclerView();
+        initImageLoader();
         setupFirebase();
+        setupRecyclerView();
         populateRecyclerView();
-    }
-    private void setupFirebase() {
-        recyclerRef = FirebaseDatabase.getInstance().getReference("Pets");
-        databaseReference = FirebaseDatabase.getInstance().getReference("User");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if(snapshot.getValue(User.class).getUserCode().equalsIgnoreCase(id)) {
-                        User user = snapshot.getValue(User.class);
-                        setupProfile(user);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
-    private void setupProfile(User user) {
-        textName.setText(user.getUserFirstName() + " " + user.getUserLastName());
-        textAddress.setText(user.getUserAddress());
-        textUsername.setText(user.getUserFirstName());
-        textContact.setText(user.getUserContact());
-        textEmail.setText(user.getUserEmail());
-        UniversalImageLoader.setImage(user.getUserPhoto(), imgViewProfile, null, "");
-    }
-    private void castWidgets() {
-        toolbarTitle = findViewById(R.id.toolbar_title);
-        toolbar = findViewById(R.id.toolbar);
-        recyclerView = findViewById(R.id.recyclerview);
-        textName = findViewById(R.id.textFullname);
-        textAddress = findViewById(R.id.textAddress);
-        textEmail = findViewById(R.id.textEmail);
-        textContact = findViewById(R.id.textContact);
-        textUsername = findViewById(R.id.textUsername);
-        imgViewProfile = findViewById(R.id.imgviewpic);
-    }
-    private void setupToolbar() {
-        setSupportActionBar(toolbar);
-        ActionBar ab = getSupportActionBar();
-        ab.setDisplayShowHomeEnabled(false);
-        ab.setHomeAsUpIndicator(R.drawable.ic_back);
-        ab.setDisplayHomeAsUpEnabled(true);
-        ab.setDisplayShowCustomEnabled(true);
-        ab.setDisplayShowTitleEnabled(false);
-        toolbarTitle.setText("Personal Information");
     }
     private void populateRecyclerView() {
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Pet, ShowViewHolder>
                 (Pet.class, R.layout.layout_model_pet, ShowViewHolder.class, recyclerRef) {
             @Override
             protected void populateViewHolder(ShowViewHolder viewHolder, final Pet model, int position) {
-                String uID = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 if(model.getPetOwnerCode().equalsIgnoreCase(uID)) {
                     viewHolder.setPetName(model.getPetName());
                     viewHolder.setPetPic(model.getPetPhoto());
@@ -132,12 +77,44 @@ public class PersonalInfoActivity extends AppCompatActivity {
         };
         recyclerView.setAdapter(firebaseRecyclerAdapter);
     }
+
+    private void initImageLoader() {
+        UniversalImageLoader universalImageLoader = new UniversalImageLoader(this);
+        ImageLoader.getInstance().init(universalImageLoader.getConfig());
+    }
+
+    private void setupFirebase() {
+        mAuth = FirebaseAuth.getInstance();
+        uID = mAuth.getCurrentUser().getUid();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        myRef = firebaseDatabase.getReference();
+        recyclerRef = firebaseDatabase.getReference("Pets");
+    }
+
+    private void castWidgets() {
+        toolbarTitle = findViewById(R.id.toolbar_title);
+        toolbar = findViewById(R.id.toolbar);
+        recyclerView = findViewById(R.id.recyclerview);
+    }
+
+    private void setupToolbar() {
+        setSupportActionBar(toolbar);
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayShowHomeEnabled(false);
+        ab.setHomeAsUpIndicator(R.drawable.ic_back);
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setDisplayShowCustomEnabled(true);
+        ab.setDisplayShowTitleEnabled(false);
+        toolbarTitle.setText("New Claim");
+    }
+
     private void setupRecyclerView() {
         StaggeredGridLayoutManager mLayoutManager = new StaggeredGridLayoutManager(1, GridLayoutManager.VERTICAL);
         mLayoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setLayoutManager(mLayoutManager);
     }
+
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             setResult(RESULT_CANCELED);
@@ -147,11 +124,6 @@ public class PersonalInfoActivity extends AppCompatActivity {
         else {
             return true;
         }
-    }
-
-    private void initImageLoader() {
-        UniversalImageLoader universalImageLoader = new UniversalImageLoader(this);
-        ImageLoader.getInstance().init(universalImageLoader.getConfig());
     }
 
     private static class ShowViewHolder extends RecyclerView.ViewHolder {

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="charles09.alindao.com.mypaws.NewClaim">
+    tools:context="charles09.alindao.com.mypaws.NewClaim.NewClaim">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -15,13 +15,23 @@
 
         <include layout="@layout/layout_toolbar"/>
     </android.support.design.widget.AppBarLayout>
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:overScrollMode="never">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="150dp"
+                android:layout_height="180dp"
+                app:border_color="#69b773"
+                android:layout_gravity="center"
+                android:id="@+id/imgviewpic"
+                app:border_width="5dp"
+                android:src="@drawable/images"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,6 +71,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
+                        android:id="@+id/textFullname"
                         android:text="Charles Kenneth Ray C. Alindao"
                         android:textSize="17sp"/>
                 </LinearLayout>
@@ -87,6 +98,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:text="alindao911"
+                        android:id="@+id/textUsername"
                         android:textSize="17sp"/>
                 </LinearLayout>
                 <View
@@ -111,6 +123,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
+                        android:id="@+id/textAddress"
                         android:text="Estaca, Tunghaan, Minglanilla, Cebu"
                         android:textSize="17sp"/>
                 </LinearLayout>
@@ -162,6 +175,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:text="alindao911@gmail.com"
+                        android:id="@+id/textEmail"
                         android:textSize="17sp"/>
                 </LinearLayout>
                 <View
@@ -187,6 +201,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:text="09123456789"
+                        android:id="@+id/textContact"
                         android:textSize="17sp"/>
                 </LinearLayout>
                 <View
@@ -227,5 +242,5 @@
                 </android.support.v7.widget.RecyclerView>
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

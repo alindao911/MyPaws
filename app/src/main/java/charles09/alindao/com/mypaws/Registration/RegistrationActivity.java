@@ -1,4 +1,4 @@
-package charles09.alindao.com.mypaws;
+package charles09.alindao.com.mypaws.Registration;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -38,7 +38,11 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import charles09.alindao.com.mypaws.MainActivity;
 import charles09.alindao.com.mypaws.Model.User;
+import charles09.alindao.com.mypaws.R;
+import charles09.alindao.com.mypaws.Utils.UniversalImageLoader;
+import charles09.alindao.com.mypaws.Utils.Utility;
 
 public class RegistrationActivity extends AppCompatActivity {
     private ImageView imgViewProfile;
@@ -167,7 +171,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                                     Uri profile = taskSnapshot.getDownloadUrl();
                                     String profileDownloadUrl = profile.toString();
-                                    User user = new User(userEmail, userPass, userFName, userLName, userAddress, userContact, Integer.parseInt(userAge), finalUserGender, profileDownloadUrl);
+                                    User user = new User(userEmail, userPass, userFName, userLName, userAddress, userContact, Integer.parseInt(userAge), finalUserGender, profileDownloadUrl, id);
                                     mDatabaseReference.child(id).setValue(user);
                                     progressDialog.dismiss();
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
