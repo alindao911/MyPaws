@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "594608353680",
+    "firebase_url": "https://my-paws-5b989.firebaseio.com",
+    "project_id": "my-paws-5b989",
+    "storage_bucket": "my-paws-5b989.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594608353680:android:d1c433d86fabbabe",
+        "android_client_info": {
+          "package_name": "charles09.alindao.com.mypaws"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594608353680-f47d8ejsp31jm9vmd0228tihrm15csso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApNfIZfT2zg1hAhM7-tjBk9u4eacuRQpM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
