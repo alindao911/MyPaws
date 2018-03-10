@@ -106,7 +106,7 @@ public class VerifyClaim extends AppCompatActivity {
                                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                                         String downloadPath2 = taskSnapshot.getDownloadUrl().toString();
                                         String claimCode = mDatabase.push().getKey();
-                                        Claim claim = new Claim(claimCode, petCode, downloadPath, downloadPath2, "AC");
+                                        Claim claim = new Claim(claimCode, petCode, downloadPath, downloadPath2, "AC", uID);
                                         mDatabase.child(claimCode).setValue(claim);
                                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

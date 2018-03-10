@@ -26,6 +26,7 @@ import charles09.alindao.com.mypaws.NewClaim.NewClaim;
 import charles09.alindao.com.mypaws.ReferFriend.ReferFriendActivity;
 import charles09.alindao.com.mypaws.Utils.UniversalImageLoader;
 import charles09.alindao.com.mypaws.Utils.ViewPagerAdapter;
+import charles09.alindao.com.mypaws.ViewClaim.ViewClaimActivity;
 
 public class MainActivity extends AppCompatActivity {
     //widgets declaration
@@ -73,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d("VIEW CLAIM","INTENT");
+                Intent intent = new Intent(getApplicationContext(), ViewClaimActivity.class);
+                startActivity(intent);
             }
         });
 

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="charles09.alindao.com.mypaws.ViewClaim.ClaimDetailsActivity">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/MultimagerTheme.AppBarOverlay">
+
+        <include layout="@layout/layout_toolbar"/>
+    </android.support.design.widget.AppBarLayout>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="150dp"
+                android:layout_height="180dp"
+                app:border_color="#69b773"
+                android:layout_gravity="center"
+                android:id="@+id/petphoto"
+                app:border_width="5dp"
+                android:src="@drawable/images"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Charles Kenneth Ray C. Alindao"
+                android:textAlignment="center"
+                android:id="@+id/textfullname"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="alindao911@gmail.com"
+                android:id="@+id/textemail"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:id="@+id/textaddress"
+                android:text="Estaca, Tunghaan, Minglanilla, Cebu"
+                android:textAlignment="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="5dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_credit_card"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Claim Details"
+                    android:layout_marginStart="5dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/green_primary"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:background="@color/white"
+                android:paddingTop="20dp"
+                android:paddingBottom="30dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:id="@+id/imgview1"
+                    android:layout_weight="1"
+                    android:padding="1dp"
+                    android:scaleType="centerCrop"
+                    android:cropToPadding="true"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/border_image"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_marginStart="20dp"
+                    android:id="@+id/imgview2"
+                    android:layout_weight="1"
+                    android:padding="1dp"
+                    android:scaleType="centerCrop"
+                    android:cropToPadding="true"
+                    android:background="@drawable/border_image"/>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

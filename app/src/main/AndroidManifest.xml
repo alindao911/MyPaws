@@ -30,7 +30,9 @@
         <activity android:name=".PolicyBillingActivity" />
         <activity android:name=".PersonalInfoActivity" />
         <activity android:name=".Registration.RegistrationActivity" />
-        <activity android:name=".ReferFriend.ReferFriendActivity"></activity>
+        <activity android:name=".ReferFriend.ReferFriendActivity" />
+        <activity android:name=".ViewClaim.ViewClaimActivity" />
+        <activity android:name=".ViewClaim.ClaimDetailsActivity"></activity>
     </application>
 
 </manifest>

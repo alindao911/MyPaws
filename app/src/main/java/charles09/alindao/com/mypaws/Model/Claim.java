@@ -10,17 +10,27 @@ public class Claim {
     private String ClaimImageOne;
     private String ClaimImageTwo;
     private String ClaimImageStatus;
+    private String ClaimOwnerCode;
 
     public Claim() {
 
     }
 
-    public Claim(String claimCode, String claimPetCode, String claimImageOne, String claimImageTwo, String claimImageStatus) {
+    public Claim(String claimCode, String claimPetCode, String claimImageOne, String claimImageTwo, String claimImageStatus, String claimOwnerCode) {
         ClaimCode = claimCode;
         ClaimPetCode = claimPetCode;
         ClaimImageOne = claimImageOne;
         ClaimImageTwo = claimImageTwo;
         ClaimImageStatus = claimImageStatus;
+        ClaimOwnerCode = claimOwnerCode;
+    }
+
+    public String getClaimOwnerCode() {
+        return ClaimOwnerCode;
+    }
+
+    public void setClaimOwnerCode(String claimOwnerCode) {
+        ClaimOwnerCode = claimOwnerCode;
     }
 
     public String getClaimCode() {
