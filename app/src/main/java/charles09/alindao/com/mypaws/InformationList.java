@@ -18,7 +18,8 @@ import charles09.alindao.com.mypaws.Registration.LoginActivity;
  * Created by Pc-user on 02/02/2018.
  */
 
-public class InformationList extends RecyclerView.Adapter<InformationList.InformationListViewHolder> {
+public class InformationList extends RecyclerView.Adapter<InformationList.InformationListViewHolder>
+{
 
     private ArrayList<InformationListDetails> list;
     FirebaseAuth mAuth;

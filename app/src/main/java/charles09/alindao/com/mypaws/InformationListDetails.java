@@ -4,7 +4,8 @@ package charles09.alindao.com.mypaws;
  * Created by Pc-user on 02/02/2018.
  */
 
-public class InformationListDetails {
+public class InformationListDetails
+{
     private String settingsName;
 
     public InformationListDetails() {

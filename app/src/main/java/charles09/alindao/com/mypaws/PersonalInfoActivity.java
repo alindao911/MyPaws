@@ -77,7 +77,8 @@ public class PersonalInfoActivity extends AppCompatActivity {
             }
         });
     }
-    private void setupProfile(User user) {
+    private void setupProfile(User user)
+    {
         textName.setText(user.getUserFirstName() + " " + user.getUserLastName());
         textAddress.setText(user.getUserAddress());
         textUsername.setText(user.getUserFirstName());
@@ -85,7 +86,8 @@ public class PersonalInfoActivity extends AppCompatActivity {
         textEmail.setText(user.getUserEmail());
         UniversalImageLoader.setImage(user.getUserPhoto(), imgViewProfile, null, "");
     }
-    private void castWidgets() {
+    private void castWidgets()
+    {
         toolbarTitle = findViewById(R.id.toolbar_title);
         toolbar = findViewById(R.id.toolbar);
         recyclerView = findViewById(R.id.recyclerview);

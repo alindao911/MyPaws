@@ -7,7 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class PolicyBillingActivity extends AppCompatActivity {
+public class PolicyBillingActivity extends AppCompatActivity
+{
     private Toolbar toolbar;
     private TextView toolbarTitle;
     @Override
@@ -17,11 +18,13 @@ public class PolicyBillingActivity extends AppCompatActivity {
         castWidgets();
         setupToolbar();
     }
-    private void castWidgets() {
+    private void castWidgets()
+    {
         toolbarTitle = findViewById(R.id.toolbar_title);
         toolbar = findViewById(R.id.toolbar);
     }
-    private void setupToolbar() {
+    private void setupToolbar()
+    {
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
         ab.setDisplayShowHomeEnabled(false);
@@ -31,7 +34,8 @@ public class PolicyBillingActivity extends AppCompatActivity {
         ab.setDisplayShowTitleEnabled(false);
         toolbarTitle.setText("Policy & Billing");
     }
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         if (item.getItemId() == android.R.id.home) {
             setResult(RESULT_CANCELED);
             finish();
